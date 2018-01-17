@@ -66,4 +66,4 @@ plugins/
 www/lib/
 
 #configurations
-www/app/services/configurations/*
+www/**/configurations/**
