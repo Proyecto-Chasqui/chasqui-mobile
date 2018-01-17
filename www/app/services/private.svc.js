@@ -3,9 +3,8 @@
 
     angular.module('chasqui').factory('privateService', privateService);
     
-    function privateService($http, $rootScope, LxNotificationService) {
+    function privateService($http, $rootScope, LxNotificationService, URL_BACKEND) {
         var privateService = {};
-        var URL_BACKEND = "http://proyectochasqui.org:8080/chasqui-dev-testing";
         var header = {};
 
         privateService.refrescarHeader = function(){

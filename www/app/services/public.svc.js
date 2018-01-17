@@ -3,9 +3,7 @@
 
     angular.module('chasqui').factory('publicService', publicService);
     
-    function publicService($http, $rootScope, AuthenticationService, LxNotificationService) {
-        var publicService = {};
-        var URL_BACKEND = "http://proyectochasqui.org:8080/chasqui-dev-testing";
+    function publicService($http, $rootScope, AuthenticationService, LxNotificationService, URL_BACKEND) {
 
         publicService.registro = function(perfil, callbackSuccess, callbackError){
             $http.post(URL_BACKEND+"/rest/client/sso/singUp", perfil)

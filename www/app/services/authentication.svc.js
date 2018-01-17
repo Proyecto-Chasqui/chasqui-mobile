@@ -3,9 +3,8 @@
 
     angular.module('chasqui').factory('AuthenticationService', AuthenticationService);
     
-    function AuthenticationService($http, $rootScope,$cordovaSQLite,privateService) {
+    function AuthenticationService($http, $rootScope,$cordovaSQLite,privateService, URL_BACKEND) {
         var authentication = {};
-        var URL_BACKEND = "http://proyectochasqui.org:8080/chasqui-dev-testing";
         var db = null;
 
         authentication.GuardarCredenciales = function(token, email, id, nickname){
