@@ -64,3 +64,6 @@ typings/
 platforms/
 plugins/
 www/lib/
+
+#configurations
+*local.conf.js
