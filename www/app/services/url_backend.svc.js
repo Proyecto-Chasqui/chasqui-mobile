@@ -5,7 +5,7 @@
     
     function URL_BACKEND() {
         
-        var url_backend = ""; // completar con 
+        var url_backend = ""; // completar con la url que desees
         
         return url_backend; 
     }
