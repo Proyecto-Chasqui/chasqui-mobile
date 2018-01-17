@@ -117,3 +117,6 @@ As a 100% free open-source project, **developer participation is encouraged**, a
 **Ionic Material** is best explained as a "material extension" to Ionic, rather than to Angular as a whole. The difference isn't just semantics - Ionic Material extends the actual ionic framework namespace (in JS), renders material styles on the ionic elements (following ionic's conventions), and will aim to follow the releases of Ionic, and support material theming, ink, and motion for any new Ionic release.
 
 Ionic Material will pull in the best ideas of Angular Material, Paper/Polymer, etc. and by the same tune, Ionic Material will also abstract the parts of the framework that would be beneficial outside of ionic apps (like animations, motions) into their standalone git projects so they can be adopted for use in -any- web project that uses material design.
+
+## IMPORTANTE PARA DESARROLLO
+Los archivos con extensión *.complete.conf.js* tienen que ser copiados, cambiada la extensión por *.local.conf.js* y completados con los datos correspondientes. Los archivos con la extensión *.local.conf.js* serań ignorados por git
