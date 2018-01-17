@@ -66,4 +66,4 @@ plugins/
 www/lib/
 
 #configurations
-*local.conf.js
+#www/app/services/configurations/*
