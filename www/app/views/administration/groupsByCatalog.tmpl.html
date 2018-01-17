@@ -1,0 +1,51 @@
+<ion-view view-title="{{nombreVendedor}}" cache-view="false">
+    <ion-content style="background: url(img/fondo_general_movil.png) center; background-size: cover;">
+        <div class="card">
+            <div class="item item-divider">Grupos de compra</div>
+        </div>
+        <div class="row center-xs">
+            <div class="col-xs-6">
+                <div class="box">
+                    <lx-button class="btn btn--m btn--raised bgc-light-blue-600"
+                               lx-size="lg"
+                               lx-type="raised"
+                               ui-sref="menu.home.catalogo({idVendedor: idVendedor, nombreVendedor: nombreVendedor})">
+                               Volver al catálogo
+                    </lx-button>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="box">
+                    <lx-button class="btn btn--m btn--raised bgc-light-blue-600"
+                               lx-size="lg"
+                               lx-type="raised"
+                               ng-click="crearGrupoForm()">
+                               Crear Grupo
+                    </lx-button>
+                </div>
+            </div>
+        </div>
+        <ion-list>
+            <div ng-repeat="g in gss" class="animate-fade-slide-in-right">
+                <div class="card" ng-click="verGrupos(v)">
+                    <div class="row middle-xs">
+                        <div class="col col-80">
+                              <h4 class="padding-precio">{{g.alias}}</h4>
+                              <h5 class="dark">Descripcion: {{g.descripcion}}</h5>
+                              <h5 class="dark">Contacto: {{g.emailAdministrador}}</h5>
+                              <h5 class="dark">Domicilio: {{g.domicilio}}</h5>
+                              <div ng-if="g.esAdministrador">
+                                  <h5 class="dark">¡Tu eres el administrador del Grupo!</h5>
+                              </div>
+                        </div>
+                        <div class="col col-20">
+                            <i class="ion-gear-b larger"
+                                ng-click="administrarGrupo(g)">
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <ion-list>
+    </ion-content>
+</ion-view>

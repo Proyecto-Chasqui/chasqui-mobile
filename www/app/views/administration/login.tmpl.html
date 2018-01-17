@@ -1,0 +1,50 @@
+<ion-view align-title="left">
+    <ion-content style="background: url(img/md192.jpg) center; background-size: cover;">
+        <div class="hero no-header flat">
+            <div class="content">
+                <div class="app-icon"></div>
+            </div>
+        </div>
+        <div class="list input-login">
+            <ion-md-input placeholder="Email" id="inputEmail"
+                        highlight-color="calm" 
+                        type="email" 
+                        ng-model="usuario.email">
+            </ion-md-input>
+            <ion-md-input placeholder="Contraseña" id="password" 
+                        highlight-color="calm" 
+                        type="password" 
+                        ng-model="usuario.password">
+            </ion-md-input>
+        </div>
+        <div class="padding text-center">
+            <button class="button button-small button-calm ink" 
+                    ng-click="login()"
+                    ng-disabled="!usuario.email || !usuario.password">
+                    Ingresar
+            </button>
+            <button ui-sref="singup" 
+                    class="button button-small button-positive ink">
+                    Registrarse
+            </button>
+        </div>
+        <div class="p++">
+            <div class="padding text-center">
+                <a href="" ng-click="showInput()"> Olvidé la contraseña</a>
+                <div class="list input-login" ng-show="resetPassword">
+                    <ion-md-input placeholder="Email Registrado" 
+                                    highlight-color="calm" 
+                                    type="email" 
+                                    ng-model="usuario.resetEmail">
+                    </ion-md-input>
+                    <br>
+                    <button ng-disabled="!usuario.resetEmail" 
+                            class="button button-small button-balanced ink" 
+                            ng-click="forgetPassword()">
+                            Enviar
+                    </button>
+                </div>
+            </div> 
+        </div>
+    </ion-content>
+</ion-view>

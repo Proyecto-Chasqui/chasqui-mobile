@@ -1,0 +1,45 @@
+<ion-view view-title="Inicio">
+    <ion-content style="background: url(img/fondo_general_movil.png) center; background-size: cover;">
+        <div class="bienvenido">
+            <div class="espacio-small"></div>
+            <div class="row">
+                <div class ="col col-25">
+                    <span class="avatar-bienvenida" style="background: url('img/chasqui-logo.png'); background-size: cover;"></span>
+                </div>
+                <div class="col col-75">
+                    <div class="row">
+                        <p>Bienvenido a Chasqui, una herramienta construida en y para la Economía Social y Solidaria. Acá encontrarás los catálogos de diferentes organizaciones de la ESS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ion-list>
+            <div ng-repeat="v in vss" class="animate-fade-slide-in-right" ng-last-repeat="catalogos">
+                <div class="card">
+                    <div class="row">
+                        <div class="col col-75">
+                            <div class="row">
+                                <p><h3 class="dark">{{v.nombre}}<h3></p><br/>
+                            </div>
+                            <div class="row mt">
+                                <lx-button class="btn btn--m btn--raised bgc-light-blue-600"
+                                           lx-size="xs"
+                                           lx-type="raised"
+                                           ng-click="verCatalogo(v)">Productos
+                                </lx-button>
+                                <lx-button class="btn btn--m btn--raised bgc-indigo-600"
+                                           lx-size="xs"
+                                           lx-type="raised"
+                                           ng-click="verEntregas(v)">Entregas
+                                </lx-button>
+                            </div>
+                        </div>
+                        <div ng-show="v.imagen" class ="col col-25">
+                            <img ng-src="{{v.imagen}}" align="left">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <ion-list>
+    </ion-content>
+</ion-view>

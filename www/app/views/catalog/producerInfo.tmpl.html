@@ -1,0 +1,45 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-royal2">
+    <h1 class="title">Info de Producto</h1>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div class="list">
+        <div align="center">
+            <fieldset ng-disabled="true" class="list form">
+                <label class="item item-input">
+                    <span class="input-label">Nombre:</span>
+                    <input type="text" ng-model="productor.nombreProductor">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Pais:</span>
+                    <input type="text"  ng-model="productor.direccion.pais">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Provincia:</span>
+                    <input type="text"  ng-model="productor.direccion.provincia">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Localidad:</span>
+                    <input type="text" ng-model="productor.direccion.localidad">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Calle:</span>
+                    <input type="text" ng-model="productor.direccion.calle">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Altura:</span>
+                    <input type="text" ng-model="productor.direccion.altura">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Descripcion:</span>
+                    <br><br>
+                    <p ng-bind-html="renderHTML(productor.descripcionLarga)"/>
+                </label>
+            </fieldset>
+        </div>
+      <p>
+        <button class="button button-full button-positive" ng-click="hideModal()">Cerrar</button>
+      </p>
+    </div>
+  </ion-content>
+</ion-modal-view>

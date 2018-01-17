@@ -1,0 +1,14 @@
+{
+  "name": "Chasqui-mobile",
+  "app_id": "",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*",
+    "scss/**/*"
+  ],
+  "type": "ionic1"
+}

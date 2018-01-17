@@ -1,0 +1,42 @@
+<ion-view view-title="Productores">
+    <ion-content ng-controller="ProducersCtrl">
+        <ion-list>
+            <div ng-repeat="p in productores" class="animate-fade-slide-in" ng-last-repeat="productores">
+                <div class="card">
+                    <div class="item item-text-wrap">
+                        <div class="row">
+                            <div class="col col-75">
+                                <div class="row">
+                                    <h3 class="dark">{{p.nombreProductor}}<h3>
+                                </div>
+                                <div class="row">
+                                    <p>{{p.descripcionCorta}}</p>
+                                </div>
+                                <div class="item item-insignia item-avatar item-icon-rigth resize-medalla">
+                                    <img ng-src="{{p.medalla.pathImagen}}" />
+                                </div>
+                            </div>
+                            <div class = "col col-25 item item-thumbnail-left">
+                                <img ng-src="{{p.pathImagen}}" ng-show="imagenValida(p)">
+                            </div>
+                        </div>
+                        <div class="row mt">
+                            <lx-button class="btn btn--m btn--raised bgc-red-600"
+                                       lx-size="xs"
+                                       lx-type="raised"
+                                       ng-click="verInfoProductor(p)">
+                                    Ver Info.
+                            </lx-button>
+                            <lx-button class="btn btn--m btn--raised bgc-deep-orange-400"
+                                       lx-size="xs"
+                                       lx-type="raised"
+                                       ng-click="verProductos(p)">
+                                    Ver Productos
+                            </lx-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <ion-list>
+    </ion-content>
+</ion-view>

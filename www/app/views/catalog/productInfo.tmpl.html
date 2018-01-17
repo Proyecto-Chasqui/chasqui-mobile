@@ -1,0 +1,54 @@
+<ion-modal-view>
+
+    <ion-header-bar class="bar-royal2">
+      <h1 class="title">Info de Producto</h1>
+    </ion-header-bar>
+
+    <ion-content>
+        <div class="rowproducto">
+           <div class="lupa"></div>
+              <div class="item item-image">
+                <a ng-click="openModal()"><img ng-src="{{producto.imagenPrincipal}}"/></a>
+              </div>
+        </div>
+        <div class="row fondogris">
+            <div class="col padding-left padding-top">
+                <h3 class="titulotipo">{{producto.nombreProducto}}</h3>
+                <h5 class="titulotipo">{{producto.nombreVariedad}}</h5>
+				<h5 class="padding-top copetipo"><i class="ion-ios-people iconocope"></i>{{producto.nombreFabricante}}</h5>
+				<h3 class="padding-top padding-bottom preciotipo">{{producto.precio | currency}}</h3>
+            </div>
+        </div>
+        <div class="row fondoblanco">
+            <div class="row-chasqui center-xs-chasqui">
+                <div class="col-xs-2-chasqui" ng-repeat="m in producto.medallasProducto">
+                    <div class="item item-insignia item-avatar item-icon-right ">
+                        <img ng-src="{{m.pathImagen}}" />
+                    </div>
+                </div>
+            </div>
+         </div>
+        <div class="row fondoblanco">
+              <div ng-disabled="true" class="padding-left padding-top">
+                <h5>Información del producto:</h5>
+                <p ng-bind-html="renderHTML(producto.descripcion)" />
+              </div>
+        </div>
+
+        <p>
+           <button class="button button-full button-positive" ng-click="hideModal()">Cerrar</button>
+        </p>
+
+        <script id="image-modal.html" type="text/ng-template">
+            <div class="modal image-modal transparent" ng-click="closeModal()">
+                <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="false">
+                    <ion-slide ng-repeat="i in imagenes">
+                        <img ng-src="{{i.path}}" class="fullscreen-image"/>
+                        <p class="info"> <-  Deslizar para ver  -> </p>
+                    </ion-slide>
+                </ion-slide-box>
+            </div>
+        </script>
+
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,9 @@
+<ion-view view-title="Categorias">
+    <ion-content ng-controller="CategoriesCtrl">
+        <div ng-repeat="categoria in categorias" class="listacatalogo animate-fade-slide-in" ng-last-repeat="categorias">
+            <a class="item padding-left" ng-click="verProductos(categoria)">
+                {{categoria.nombre}}
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,47 @@
+<ion-view view-title="Notificaciones">
+   <ion-content>
+      <ion-list>
+        <div ng-if="notificaciones.length==0" align="center">
+          <h4>¡No hay notificaciones!</h4>
+        </div>
+  			<ion-item ng-repeat="n in notificaciones">
+                <ion-card>
+                    <ion-card-header>
+                        <h3><strong>De: {{n.usuarioOrigen}}</strong></h3>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <p>Fecha:{{n.fechaCreacion}}</p>
+                        <p>{{n.mensaje}}<p>
+                        <div ng-show="n.estado== 'NOTIFICACION_NO_LEIDA'
+                                    && n.mensaje == 'Te han invitado a un grupo de compras colectivas'">
+                            <div class="row around-xs">
+                                <div class="col-xs-2">
+                                    <div class="box">
+                                        <i class="ion-checkmark balanced larger"
+                                            ng-click="aceptarInvitacion(n)">
+                                        </i>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="box">
+                                        <i class="ion-close assertive larger"
+                                            ng-click="rechazarInvitacion(n)">
+                                        </i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-show="n.estado== 'NOTIFICACION_ACEPTADA'
+                                    && n.mensaje == 'Te han invitado a un grupo de compras colectivas'">
+                            <p><strong>Invitacion aceptada</strong></p>
+                        </div>
+                        <div ng-show="n.estado== 'NOTIFICACION_RECHAZADA'
+                                    && n.mensaje == 'Te han invitado a un grupo de compras colectivas'">
+                            <p><strong>Invitacion rechazada</strong></p>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+  			</ion-item>
+	   </ion-list>
+	</ion-content>
+</ion-view>

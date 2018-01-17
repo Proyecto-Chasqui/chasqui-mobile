@@ -1,0 +1,35 @@
+<ion-view>
+    <ion-content>
+        <div class="card">
+            <div class="item item-divider" ng-if="pedidosIndividuales.length">Pedidos vigentes </div>
+        </div>
+
+        <div class="card">
+            <div class="item item-divider" ng-if="!pedidosIndividuales.length">No tienes pedidos vigentes</div>
+        </div>
+
+        <ion-list>
+            <div ng-repeat="pedido in pedidosIndividuales track by $index" class="animate-fade-slide-in-right">
+                <div class="card">
+                    <div class="row middle-xs">
+                        <div class="col col-60">
+                            <h4 class="padding-precio">{{pedido.nombreVendedor}}</h4>
+                            <h5 class="dark">Monto mínimo: {{pedido.montoMinimo | currency}}</h5>
+                            <h5 class="dark">Fecha: {{pedido.fechaVencimiento}}</h5>
+                        </div>
+                        <div class="col col-20">
+                            <i class="ion-information larger balanced"
+                                ng-click="verCarritoIndividual(pedido.idVendedor)">
+                            </i>
+                        </div>
+                        <div class="col col-20">
+                            <i class="ion-trash-a larger assertive"
+                                ng-click="cancelarPedidoIndividual(pedido, $index)">
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

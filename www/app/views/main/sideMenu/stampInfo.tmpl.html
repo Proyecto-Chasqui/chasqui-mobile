@@ -1,0 +1,19 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-royal2">
+    <h1 class="title">Informacion del sello</h1>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div class="list">
+        <div align="center">
+            <h3>{{medalla.nombre}}</h3>
+            <a><img ng-src="{{medalla.pathImagen}}" height="200" width="200"/></a>
+            <div ng-disabled="true">
+                <p ng-bind-html="renderHTML(medalla.descripcion)"/>
+            </div>
+        </div>
+      <p>
+        <button class="button button-full button-positive" ng-click="hideModal()">Cerrar</button>
+      </p>
+    </div>
+  </ion-content>
+</ion-modal-view>

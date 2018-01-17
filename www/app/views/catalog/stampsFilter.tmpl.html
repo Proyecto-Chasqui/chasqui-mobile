@@ -1,0 +1,21 @@
+<ion-view view-title="Sellos">
+    <ion-content ng-controller="StampsFilterCtrl">
+        <ion-list>
+            <div id="top-box">
+                <div ng-repeat="m in medallas" class="animate-fade-slide-in" ng-last-repeat="medallasFilter">
+                    <div class="left" ng-click="verProductos(m)">
+                          <div class="list cardnovedad">
+                              <div class="item item-image" >
+                                <img ng-src="{{m.pathImagen}}">
+                              </div>
+                              <div class="item">
+                                 <h3 class="dark">{{m.nombre}}</h3>
+                                 <h4 class="dark">Ver productos</h4>
+                              </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        <ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,21 @@
+<ion-view view-title="Sellos">
+    <ion-content>
+        <ion-list>
+            <div id="top-box">
+                <div ng-repeat="m in mss" class="animate-fade-slide-in" ng-last-repeat="medallas">
+                    <div class="left" ng-click="verMedalla(m)">
+                          <div class="list cardnovedad">
+                              <div class="item item-image" >
+                                <img ng-src="{{m.pathImagen}}">
+                              </div>
+                              <div class="item">
+                                 <h3 class="dark">{{m.nombre}}</h3>
+                                 <h4 class="dark">Descripcion</h4>
+                              </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        <ion-list>
+    </ion-content>
+</ion-view>

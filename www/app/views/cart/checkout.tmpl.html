@@ -1,0 +1,42 @@
+<ion-view view-title="Checkout">
+
+    <div class="bar bar-subheader bar-calm white-color">
+        <h4 class="title">Seleccionar dirección de envío</h4>
+    </div>
+
+    <ion-content class="has-header has-subheader has-footer">
+        <div ng-if="!(direccionSeleccionada | isEmpty)">
+            <div class="card">
+                <div class="item item-divider">Por defecto, se utiliza la predeterminada</div>
+            </div>
+            <ion-list>
+                <lx-radio-group>
+                    <ion-item class="item" ng-repeat="direccion in direcciones" ng-class="{'bgc-green-200': direccion.predeterminada}">
+                        <h2 class="title white-cxolor">{{direccion.alias}} <div ng-if="direccion.predeterminada">(Predeterminada)</div></h2>
+                        <p>Domicilio: {{direccion.calle}} N° {{direccion.altura}}</p>
+                        <p>Localidad:  {{direccion.localidad}}</p>
+                        <lx-radio-button
+                            name="{{direccion.alias}}"
+                            value="{{direccion.idDireccion}}"
+                            ng-model="direccionSeleccionada.id"
+                            ng-change="setearAlias(direccion.alias)"
+                            lx-color="green">
+                            <lx-radio-button-label>Seleccionar</lx-radio-button-label>
+                        </lx-radio-button>
+                    </ion-item>
+                <lx-radio-group>
+            </ion-list>
+        </div>
+        <div ng-if="(direccionSeleccionada | isEmpty)">
+            <button class="button button-full button-assertive" ui-sref="menu.direcciones">Crear dirección</button>
+        </div>
+    </ion-content>
+
+    <ion-footer-bar ng-if="!(direccionSeleccionada | isEmpty)"
+            align-title="center"
+            class="bar bar-energized"
+            ng-click="popupConfirmarPedido()">
+        <div class="title">Cerrar Pedido</div>
+    </ion-footer-bar>
+
+</ion-view>

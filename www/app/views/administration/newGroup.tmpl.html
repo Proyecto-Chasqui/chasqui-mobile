@@ -1,0 +1,29 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-royal2">
+        <h1 class="title">Nuevo grupo</h1>
+    </ion-header-bar>
+    <ion-content>
+        <form name="grupoForm" novalidate>
+            <div class="list input-loggin">
+                <lx-text-field lx-label="Nombre" lx-icon="account"
+                  lx-valid="!grupoForm.nombre.$pristine && grupoForm.nombre.$valid"
+                  lx-error="!grupoForm.nombre.$pristine && grupoForm.nombre.$invalid">
+                  <input type="text" ng-model="grupo.nombre" name="nombre" maxlength="30" required>
+                </lx-text-field>
+                <lx-text-field lx-label="Descripcion" lx-icon="account"
+                  lx-valid="!grupoForm.descripcion.$pristine && grupoForm.descripcion.$valid"
+                  lx-error="!grupoForm.descripcion.$pristine && grupoForm.descripcion.$invalid">
+                  <input type="text" ng-model="grupo.descripcion" name="descripcion" maxlength="30" required>
+                </lx-text-field>
+            </div>
+        </form>
+        <div align="center">
+            <button class="button button-positive"
+                ng-click="crearGrupo()"
+                ng-disabled="!grupo.nombre || !grupo.descripcion">Guardar
+            </button>
+        </div>
+        <br>
+        <button class="button button-full button-positive" ng-click="hideModal()">Cancelar</button>
+    </ion-content>
+</ion-modal-view>

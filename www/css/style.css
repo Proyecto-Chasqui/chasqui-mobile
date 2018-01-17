@@ -1,0 +1,622 @@
+/* General
+==================================*/
+h1 {
+    color: #fff;
+    text-shadow: 0 1px 0px #000;
+    font-size: 42px;
+}
+
+
+/* Utilities
+==================================*/
+.title-bordered {
+    border-top: solid 2px #bbb;
+    padding-top: 30px;
+}
+
+p {
+    color: #555;
+    margin: 0 0 25px;
+}
+
+.scroll {
+    height: 100%;
+}
+
+
+/* Menu
+==================================*/
+.menu .bar.bar-header.expanded {
+    transition: all .5s ease-in-out;
+}
+
+.menu-open .bar.bar-header.expanded {
+    background-color: #642365;
+}
+
+.menu h2 {
+    bottom: 0;
+    font-size: 18px;
+    left: 16px;
+    position: absolute;
+}
+
+/*.menu .avatar {
+    height: 45px;
+    width: 125px;
+    border-radius: 0% !important;
+}
+*/
+.menu.menu-left * {
+    font-weight: bold;
+}
+
+.menu-open .ion-navicon {
+    transform: rotate(-360deg);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.menu-open .ion-navicon:before {
+    content: "\f2ca";
+}
+
+
+/* Login
+==================================*/
+.app-icon {
+    background-color: #fff;
+    background: url('../img/logo.png') center no-repeat;
+    background-size: auto;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.social-login {
+    position: fixed;
+    bottom: 0;
+}
+
+.hero.no-header {
+    height: 280px;
+}
+.input-login {
+    font-size: 14px;
+    width: 93%;
+}
+
+.spinner svg {
+  width: 19% !important;
+  height: 85px !important;
+}
+/*Accordion List*/
+/*
+ * http://docs.angularjs.org/api/ng/directive/ngShow#usage_animations
+ */
+ .item-accordion {
+    padding: 0px 49px 0px 16px;
+}
+.item-accordion:hover {
+  background-color: #bbb;
+}
+.list .item.item-accordion {
+  line-height: 0px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+.list.form .item.item-input:first-child{
+    border-top-color: transparent;
+}
+.list.form .item.item-input {
+    border-color: #ddd;
+    background-color: #fff;
+    color: #444;
+    position: relative;
+    z-index: 2;
+    /*display: block;*/
+    margin: -1px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 16px;
+}
+.list.form .item.item-input .input-label {
+    display: inline;
+}
+.list.form .item.item-input.item-stacked-label .input-label,
+.list.form .item.item-input.item-floating-label .input-label{
+    display: block;
+}
+.list.form .item.item-input input, .list.form .item.item-input textarea {
+    display: inline;
+}
+.item-divider {
+    background-color: #f5f5f5 !important;
+}
+ul.list li.item, ol.list li.item{
+    border-color: #ddd;
+    background-color: #fff;
+    /*color: #444;*/
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: -1px;
+    padding: 16px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 16px;
+}
+ul.list li.item.item-divider, ol.list li.item.item-divider {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    min-height: 30px;
+    background-color: #f5f5f5;
+    color: #222;
+    font-weight: 500;
+    height: 64px;
+}
+.item-thumbnail-left>img:first-child {
+    border-radius: 0%;
+}
+.list.form .item.item-input {
+    display: block;
+}
+
+/*Ionic Modal + Slide Box - Fullscreen images */
+.transparent {
+  background: transparent !important;
+}
+.image-modal {
+  width: 100% !important;
+  height: 100%;
+  top: 0 !important;
+  left: 0 !important;
+}
+.fullscreen-image {
+  max-width: 100%;
+  max-height: 100%;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+.slider {
+  width: 100%;
+  height: 100%;
+}
+p.info {
+  position: absolute;
+  bottom: 55px;
+  margin: 0 auto;
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 28px;
+  color: #ffffff;
+}
+
+/* Fix modal backdrop for smaller devices */
+@media (max-width: 679px) {
+  .active .modal-backdrop-bg {
+    opacity: .5;
+  }
+  .modal-backdrop-bg {
+    -webkit-transition: opacity 300ms ease-in-out;
+    transition: opacity 300ms ease-in-out;
+    background-color: #000;
+    opacity: 0;
+  }
+}
+
+/* Actionsheets Android Styling */
+.platform-android .action-sheet-backdrop.active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.platform-android .action-sheet {
+    align-content: left;
+    margin:auto;
+    max-width: 96vw !important;
+    border-radius: 5px;
+    /*margin: 0;*/
+    margin-bottom: 10px;
+}
+.platform-android .action-sheet .action-sheet-title, .platform-android .action-sheet .button {
+    text-align: left;
+    /*border-color: #e2e2e2;*/
+    font-size: 16px;
+    color: inherit;
+}
+.platform-android .action-sheet .action-sheet-title {
+    text-align: center;
+    font-size: 14px;
+    padding: 16px;
+    color: #666;
+}
+.platform-android .action-sheet .button {
+    border-color: #e2e2e2;
+    padding-left: 16px;
+    color: #104e89;
+}
+.platform-android .action-sheet .button.destructive {
+    color: red;
+    padding-left: 130px;
+}
+.platform-android .action-sheet .button.active, .platform-android .action-sheet .button.activated {
+    background: #e8e8e8;
+}
+.platform-android .action-sheet-group {
+   /* margin: 0;*/
+    border-radius: 0;
+    background-color: #fafafa;
+}
+.platform-android .action-sheet-cancel {
+    display: none;
+}
+.platform-android .action-sheet-has-icons .button {
+    padding-left: 56px;
+}
+
+/*Fix menu header*/
+.has-expanded-header {
+    /*top: 75px !important;*/
+}
+
+.menu .bar.bar-header.expanded {
+    min-height: 150px !important;
+    background-image: url(../img/material-graphite005.jpg);
+    background-size: 100%;
+    background-position: 0%;
+    transition: all .5s ease-in-out;
+}
+
+/*Fix cantidad de elementos agregados al carrito*/
+.header-badge{
+    display: inline-block !important;
+    top: -7px !important;
+    left: -20px !important;
+}
+
+.item-insignia{
+  border-width: 0px !important;
+}
+
+/*Custom flexbox*/
+.row-chasqui {
+  width: 300px;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.center-xs-chasqui {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.col-xs-2-chasqui {
+  -ms-flex-preferred-size: 30%;
+  flex-basis: 30%;
+  max-width: 30%;
+}
+
+/* Size de medallas en infoProducto*/
+.item-avatar .item-content .item-image, .item-avatar .item-content>img:first-child, .item-avatar .item-image, .item-avatar-left .item-content .item-image, .item-avatar-left .item-content>img:first-child, .item-avatar-left .item-image, .item-avatar-left>img:first-child, .item-avatar>img:first-child {
+    max-height: 60px !important;
+    max-width: 60px !important;
+}
+
+/* Resize imagen de medallas de productores */
+.resize-medalla>img:first-child {
+    max-height: 40px !important;
+    max-width: 40px !important;
+}
+
+/* Fix position Imagen Productor */
+.fix-avatar-productor {
+    margin-left: -60px !important;
+    top: -15px !important
+}
+
+/* Fix position Imagen Vendedor */
+.fix-avatar-vendedor {
+    right: 15px !important;
+}
+
+.fix-buttom-top {
+        top: 0px !important;
+}
+
+/* Fix navbar height*/
+.bar.bar-header.expanded, .expanded .bar.bar-header {
+    height: 44px;
+}
+.avatar-bienvenida {
+    background-position: center;
+    background-size: cover;
+    height: 72px;
+    left: 16px;
+    position: absolute;
+    width: 72px;
+}
+
+.espacio-small {
+  height: 20px;
+}
+
+.bar.bar-royal2 {
+  border-color: #6b46e5;
+  background-color: #642365;
+  background-image: linear-gradient(0deg, #6b46e5, #6b46e5 50%, transparent 50%);
+  color: #fff;
+  box-shadow: 0 0px 0px 0 rgba(0,0,0,0) !important;
+}
+
+.bar.bar-royal2 .title {
+color: #fff;
+}
+
+.bar.bar-royal2.bar-footer {
+background-image: linear-gradient(180deg, #6b46e5, #6b46e5 50%, transparent 50%); }
+
+.royal2-bg {
+    background-color: #642365;
+    color: #fff;
+}
+
+.header-menu-color {
+    background-color: #642365;
+}
+
+.card2 {
+    border-radius: 2px;
+    background-color: #FFF;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.card-info {
+    margin: 0px 10px 0px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-style: inherit;
+    font-variant: inherit;
+    font-size: inherit;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+/*Precio*/
+.precio-producto {
+    width: 360px;
+    margin-top: 15px;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 24px;
+    font-style: inherit;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Recuadro imagen*/
+.recuadro-imagen {
+  border: 1px dotted #999;
+}
+
+/*Recuadro galeria imagen producto*/
+.imagen-galeria{
+    width: 84px;
+    height: 34px;
+    position: absolute;
+    right: 0px;
+    margin-top: 11px;
+    margin-right: 15px;
+    z-index: 5;
+    background-color: rgba(234, 67, 53, 0.86);
+    padding: 5px 0px 0px 14px;
+}
+
+.imagen-galeria p {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+/*Recuadro info producto*/
+.producto-info{
+    position: absolute;
+    left: 5px;
+    z-index: 5;
+    background-color: rgba(27, 27, 27, 0.18);
+    padding: 2px 7px 0px 7px;
+}
+
+.producto-info p {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+.menu-bottom p {
+    font-size: 10px;
+    margin: 0px;
+    color: #45c6f2;
+}
+
+.padding-precio{
+  padding-bottom: 5px !important;
+}
+
+/* BOX NOVEDADES */
+#top-box {
+	clear: both; /* IMPORTANTE -> para que top-box se ajuste solo al alto de los divs left */
+	overflow: hidden;
+}
+#top-box .left{
+	float: left;
+	padding: 5px;
+}
+
+/* para 1600px o menos */
+@media screen and (max-width:1600px) {
+#top-box .left { width:25%;}
+}
+
+/* para 1024px o menos */
+@media screen and (max-width:1024px) {
+#top-box .left { width:33%;}
+}
+
+/* para 980px o menos */
+@media screen and (max-width:980px) {
+#top-box .left { width:33%;}
+}
+
+/* para 700px o menos */
+@media screen and (max-width:700px) {
+#top-box .left{ width:33%;}
+	}
+
+/* para 480px o menos */
+@media screen and (max-width:480px) {
+#top-box .left { width:50%;}
+	}
+
+.mas {
+    height: 49px;
+    width: 56px;
+    background: url(../img/mas.png)no-repeat;
+    right: 0;
+    top: 0;
+    position: absolute;
+	z-index: 5;
+}
+
+.lupa {
+    height: 49px;
+    width: 56px;
+    background: url(../img/lupa.png)no-repeat;
+    right: 0;
+    top: 0;
+    position: absolute;
+	z-index: 5;
+}
+
+.bienvenidx {
+    background: url(../img/bienvenidx.jpg);
+    right: 0;
+    top: 0;
+	z-index: 1;
+    max-width: 100%;
+	height:200px;
+    position: static;
+}
+
+/* CARD estilo diferente */
+.list:last-child.cardnovedad {
+    margin-bottom: 10px;
+}
+
+.cardnovedad {
+    background-color: #FFF;
+    overflow: hidden;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.14), 0 2px 2px 0 rgba(0,0,0,.098), 0 1px 5px 0 rgba(0,0,0,.084);
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+/* ROW producto */
+.rowproducto {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+}
+
+.fondogris{
+   background-color: #eeeeee;
+}
+
+.fondoblanco{
+   background-color: #ffffff;
+   border-top: 1px solid #ddd;
+}
+
+.preciotipo{
+    font-style: thin;
+    font-family: "Roboto";
+    font-weight: 400;
+}
+
+.titulotipo{
+    font-style: thin;
+    font-family: "Roboto";
+    font-weight: 300;
+}
+
+.copetipo{
+    font-style: thin;
+    font-family: "Roboto";
+    font-weight: 300;
+}
+
+.iconocope{
+    padding-right: 5px;
+}
+
+.listacatalogo{
+    position: relative;
+    padding-top: 1px;
+    padding-left: 0;
+}
+
+/* Agregado para que .row no se vea afectado por flexboxgrid*/
+.row {
+    margin-left: -.0rem !important;
+}
+
+.larger {
+    font-size: 50px;
+}
+
+
+/* Estilos para la seleccion de grupo para compra*/
+.item-select {
+    height: 40px;
+}
+
+.item-select select {
+    width: 50%;
+}

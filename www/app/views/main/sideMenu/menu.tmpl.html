@@ -1,0 +1,58 @@
+<ion-side-menus enable-menu-with-back-views="true">
+
+    <!-- Side Menu Content -->
+    <ion-side-menu-content >
+        <ion-nav-bar class="bar-royal2"
+                     ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="left">
+            <!-- Back Button -->
+            <!--<ion-nav-back-button class="no-text"></ion-nav-back-button> -->
+            <!-- Left Side Button -->
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-android-more-vertical" menu-toggle="left"></button>
+            </ion-nav-buttons>
+            <!-- Right Side Button -->
+            <ion-nav-buttons side="right">
+                <!-- <button id="fab-profile"
+                        class="button button-fab button-fab-bottom-center buttons-  stable-100"
+                        ng-click="onVerNotificaciones($event)">
+                        <i class="ion-ios-bell"></i>
+                </button> -->
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <!--Loads views-->
+        <ion-nav-view name="menuContent" ng-class="{expanded: isExpanded}" ></ion-nav-view>
+    </ion-side-menu-content>
+
+    <!-- Left Side Menu --> <!-- TODO: ver como abstraer a un template-->
+    
+    <ion-side-menu side="left" ng-controller="SideMenuCtrl">
+
+        <ion-header-bar class="dark-bg expanded">
+            <img src="img/chasqui-logo.png" class="avatar motion spin fade">
+            <div class="menu-bottom">
+                ¡Bienvenido, {{nombre}}!
+                <p>{{email}}</p>
+            </div>
+        </ion-header-bar>
+        <ion-content class="has-expanded-header">
+            <ion-list>
+                <div ng-repeat="item in leftMenuItems">
+                    <!-- {{item.icon}} -->
+                    <ion-item class="item-stable"
+                              ui-sref="{{item.sref}}"
+                              nav-clear menu-close
+                            class="item-accordion">
+                            {{item.title}}
+                    </ion-item>
+                </div>
+                <ion-item class="item-stable ion-close-circled"
+                          nav-clear menu-close
+                          ng-click="desconectar()"
+                        class="item-accordion">
+                        Cerrar Sesión
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+
+</ion-side-menus>

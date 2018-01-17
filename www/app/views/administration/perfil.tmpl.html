@@ -1,0 +1,66 @@
+<ion-view view-title="Perfil de Usuario">
+<ion-header-bar align-title="left" class="bar-positive">
+  <h1 class="title">Registro</h1>
+</ion-header-bar>
+<ion-content>
+    <form name="profile" novalidate>
+        <div class="list input-loggin">
+          <lx-text-field lx-label="Email" lx-icon="email"
+               lx-valid="!profile.email.$pristine && profile.email.$valid && emailValido()"
+               lx-error="!profile.email.$pristine && (profile.email.$invalid || 
+               !emailValido())">
+               <input type="email" ng-model="perfil.email" name="email" required ng-disabled="esEdicionPerfil">
+          </lx-text-field>
+          <p ng-show="!profile.email.$pristine && (profile.email.$invalid || 
+               !emailValido())">El texto ingresado no es un email</p>  
+          <lx-text-field lx-label="Contraseña"  lx-icon="account"
+               lx-valid="!profile.password.$pristine && profile.password.$valid && passwordValida()"
+               lx-error="!profile.password.$pristine && (profile.password.$invalid ||
+               !passwordValida())">
+               <input type="password" ng-model="perfil.password" name="password" required  maxlength="15" ng-disabled="esEdicionPerfil">
+          </lx-text-field>
+          <lx-text-field lx-label="Confirme contraseña" lx-icon="account"
+               lx-valid="!profile.password_r.$pristine && profile.password_r.$valid && coincidenContrasenias"
+               lx-error="!profile.password_r.$pristine && (profile.password_r.$invalid || !coincidenContrasenias())">
+               <input id="password_r" type="password" ng-model="perfil_r.password" maxlength="15" name="password_r" required ng-disabled="esEdicionPerfil">
+          </lx-text-field>
+          <p ng-show="!profile.password_r.$pristine && (profile.password_r.$invalid || !coincidenContrasenias())">Las contraseñas no coinciden</p>
+           <lx-text-field lx-label="Nombre"  lx-icon="account"
+              lx-valid="!profile.nombre.$pristine && profile.nombre.$valid && nombreValido()"
+              lx-error="!profile.nombre.$pristine && (profile.nombre.$invalid || !nombreValido())">
+            <input type="text" ng-model="perfil.nombre" name="nombre" maxlength="15" required ng-disabled="esEdicionPerfil">
+          </lx-text-field>
+           <lx-text-field lx-label="Apellido" lx-icon="account"
+              lx-valid="!profile.apellido.$pristine && profile.apellido.$valid && apellidoValido()"
+              lx-error="!profile.apellido.$pristine && (profile.apellido.$invalid || 
+              !apellidoValido())">
+            <input type="text" ng-model="perfil.apellido" name="apellido" maxlength="15" required ng-disabled="esEdicionPerfil">
+          </lx-text-field>
+          <lx-text-field lx-label="Nick"  lx-icon="account"
+               lx-valid="!profile.nickName.$pristine && profile.nickName.$valid"
+               lx-error="(!profile.nickName.$pristine && profile.nickName.$invalid)">
+               <input type="text" ng-model="perfil.nickName" maxlength="10" name="nickName" required ng-disabled="esEdicionPerfil">
+          </lx-text-field>
+          <lx-text-field lx-label="Teléfono"  lx-icon="phone"
+               lx-valid="!profile.telefonoFijo.$pristine && profile.telefonoFijo.$valid && telefonoValido()"
+               lx-error="!profile.telefonoFijo.$pristine && (profile.telefonoFijo.$invalid || !telefonoValido())">
+               <input type="tel" ng-model="perfil.telefonoFijo" maxlength="10" name="telefonoFijo" required ng-disabled="esEdicionPerfil">
+          </lx-text-field>
+           <lx-text-field lx-label="Celular"
+               lx-valid="!profile.celular.$pristine && profile.celular.$valid && celularValido()" lx-icon="phone"
+               lx-error="!profile.celular.$pristine && (profile.celular.invalid || !celularValido())">
+               <input type="tel" ng-model="perfil.telefonoMovil" maxlength="10" name="celular" required ng-disabled="esEdicionPerfil">
+          </lx-text-field> 
+        </div>
+      </form> 
+      <div align="center">
+          <button class="button button-positive" id="editar" ng-show="esEdicionPerfil" 
+                  ng-click="editar()">Editar</button>
+          <button class="button button-positive" id="guardar" ng-show="!esEdicionPerfil" 
+                  ng-click="guardar()">Guardar</button>
+      </div>
+      <div>
+        <button id="direcciones" name="direcciones" ng-show="esEdicionPerfil"  class="button button-block button-positive" ng-click="verDirecciones()">Ver domicilios</button> 
+      </div>
+</ion-content> 
+</ion-view>

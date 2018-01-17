@@ -1,0 +1,43 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-royal2">
+    <h1 class="title">Agregar al carrito</h1>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div class="list">
+        <div align="center">
+            <h4>{{title}}</h4>
+            <hr><br>
+            <h5>Elija el tipo de compra</h5>
+            <div class="row around-xs">
+                <button class="button"
+                    ng-class="{'button-balanced' : compraIndividualSelected}"
+                    ng-click="compraIndividual()">Individual
+                </button>
+            </div>
+            <br><br>
+            <div class="row around-xs">
+                <button class="button"
+                    ng-class="{'button-balanced' : compraGrupalSelected}"
+                    ng-click="compraGrupal()">Grupal
+                </button>
+            </div>
+        </div>
+        <div ng-if="elegirGrupo" class="list" align="center">
+            <br><br>
+            <label ng-if="gss.length>0" class="item item-input item-select">
+                <div class="input-label">
+                    Seleccinar Grupo ->
+                </div>
+                <select class="styled-select blue semi-square center"
+                       ng-model="grupo.select"
+                       ng-change="grupoSeleccionado(grupo.select)">
+                       <option ng-repeat="g in gss" value="{{g}}">{{g.alias}}</option>
+                </select>
+            </label>
+            <div ng-if="gss.length==0">No tienes grupos de compra aún</div>
+        </div>
+        <br><br>
+        <button class="button button-full button-assertive" ng-click="hideModal()">Cerrar</button>
+    </div>
+  </ion-content>
+</ion-modal-view>

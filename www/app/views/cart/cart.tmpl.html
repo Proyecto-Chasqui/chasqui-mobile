@@ -1,0 +1,65 @@
+<ion-view hide-back-button="true">
+    <ion-nav-title>
+        <div ng-if="nombreVendedor">
+            Carrito de compras
+        </div>
+        <div ng-if="!nombreVendedor">
+            Carrito vacío
+        </div>
+    </ion-nav-title>
+
+    <ion-nav-buttons side="right">
+            <button class="button button-clear icon ion-bag white-color">
+                <span class="badge" ng-class="{'badge-assertive header-badge': badge>-1}"><div ng-if="badge>-1">{{badge}}</div></span>
+            </button>
+    </ion-nav-buttons>
+
+    <div ng-if="montoActual" class="bar bar-subheader bar-calm white-color">
+        <h4 class="title">Monto Actual: {{montoActual | currency}} </h4>
+    </div>
+
+    <ion-content class="has-header has-subheader has-footer">
+
+        <div ng-if="cart.length">
+            <div class="card">
+                <div class="item item-divider" >Comercializadora: {{nombreVendedor}}</div>
+            </div>
+            <div class="card">
+                <div class="item item-divider">Deslizar para ver las opciones del carrito</div>
+            </div>
+        </div>
+
+        <div class="text-center" style="padding-top:100px;" ng-if="!cart.length">
+              <h2 class="sans-pro-light">Aún no se han agregado ítems</h2>
+              <div class="button button-outline button-energized button-deepblue-white" ui-sref="menu.home.catalogo({idVendedor: idVendedor})">Volver al catálogo</div>
+        </div>
+
+        <!--
+          #IMPLEMENTATION-DETAIL:
+          we are using a swipeable list to give an interface to remove products
+          from the cart. This is done by binding the "can-swipe" attribute of an
+          "ion-list" to true.
+        -->
+        <ion-list can-swipe="true">
+            <ion-item class="item item-avatar" ng-repeat="producto in cart track by $index" >
+                <!--
+                  #IMPLEMENTATION-DETAIL:
+                  we are using our custom classes here.
+                  see file scss/views.scss for implementation
+                -->
+                <img ng-src="{{producto.imagen}}" alt="">
+                <h2 class="title white-cxolor">{{producto.nombre}}</h2>
+                <p>Precio unitario: {{producto.precio | currency}}</p>
+                <p>Subtotal: {{producto.cantidad*producto.precio | currency}} ({{producto.cantidad}} ítem/s)</p>
+
+                <ion-option-button class="button-assertive" ng-click="quitarProducto(producto, $index)">QUITAR</ion-option-button>
+                <ion-option-button class="button-balanced" ng-click="editarProducto(producto)">EDITAR</ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+
+    <ion-footer-bar align-title="center"  ng-if="montoActual>=montoMinimo" class="bar bar-energized" ng-click="confirmarPedido()">
+        <div class="title">Confirmar</div>
+    </ion-footer-bar>
+
+</ion-view>

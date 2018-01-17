@@ -1,0 +1,100 @@
+<ion-view view-title="Direcciones">
+    <ion-content>
+        <div class="card">
+            <div class="item item-divider">{{actividad}}</div> 
+        </div>
+        <ion-list ng-class="accordion">
+            <div ng-repeat="d in dss" class="animate-fade-slide-in" ng-last-repeat="direcciones">
+                <ion-item class="item-stable" 
+                          ng-click="toggleGroup(d.alias_p)" 
+                          ng-class="{active: isGroupShown(d.alias_p)}">
+                    <i class="icon" 
+                       ng-class="isGroupShown(d.alias_p) ? 'ion-minus' : 'ion-plus'">
+                    </i>&nbsp;{{d.alias_p}}
+                </ion-item>
+                <form name="profile" novalidate>
+                    <ion-item nav-clear menu-close class="item-accordion" ng-show="isGroupShown(d.alias_p)">
+                        <lx-text-field lx-label="Alias:"
+                            lx-valid="!profile.alias.$pristine &&  profile.alias.$valid"
+                            lx-error="!profile.alias.$pristine &&  profile.alias.$invalid">
+                                <input type="text" ng-model="d.alias" name="alias" required maxlength="15"/>
+                        </lx-text-field>
+                    </ion-item>
+                    <ion-item nav-clear menu-close class="item-accordion" ng-show="isGroupShown(d.alias_p)">
+                        <lx-text-field lx-label="Calle:" 
+                            lx-valid="!profile.calle.$pristine && profile.calle.$valid"
+                            lx-error="!profile.calle.$pristine && profile.calle.$invalid">
+                                <input type="text" ng-model="d.calle" name="calle" required maxlength="15"/>
+                        </lx-text-field>
+                    </ion-item>
+                    <ion-item nav-clear menu-close class="item-accordion" ng-show="isGroupShown(d.alias_p)">
+                        <lx-text-field lx-label="Altura:" 
+                            lx-valid="!profile.altura.$pristine && profile.altura.$valid"
+                            lx-error="!profile.altura.$pristine && (profile.altura.$invalid 
+                            || !altValida(d.altura))">
+                            <input type="tel" ng-model="d.altura" name="altura" required maxlength="4"/>
+                        </lx-text-field>
+                    </ion-item>
+                    <ion-item nav-clear menu-close class="item-accordion" ng-show="isGroupShown(d.alias_p)">
+                        <lx-text-field lx-label="Código Postal:"
+                            lx-valid="!profile.codigoPostal.$pristine && profile.codigoPostal.$valid"
+                            lx-error="!profile.codigoPostal.$pristine && (profile.codigoPostal.$invalid
+                            || !codigoPostalValido(d.codigoPostal))">
+                            <input  type="tel" ng-model="d.codigoPostal" name="codigoPostal" required maxlength="4"/>
+                        </lx-text-field>
+                    </ion-item>
+                    <ion-item nav-clear menu-close class="item-accordion" ng-show="isGroupShown(d.alias_p)">
+                        <lx-text-field lx-label="Piso/Departamento:"
+                            lx-valid="!profile.departamento.$pristine && profile.departamento.$valid"
+                            lx-error="!profile.departamento.$pristine && profile.departamento.$invalid">
+                            <input  type="text" ng-model="d.departamento" required name="departamento" maxlength="4"/>
+                        </lx-text-field>
+                    </ion-item>
+                    <ion-item nav-clear menu-close class="item-accordion" ng-show="isGroupShown(d.alias_p)">
+                        <lx-text-field lx-label="Localidad:" 
+                            lx-valid="!profile.localidad.$pristine && profile.localidad.$valid"
+                            lx-error="!profile.localidad.$pristine && profile.localidad.$invalid">
+                            <input type="text" ng-model="d.localidad" name="localidad" required maxlength="15"/>
+                        </lx-text-field>
+                    </ion-item>
+                    <ion-item nav-clear menu-close class="item-accordion"  ng-show="isGroupShown(d.alias_p)">
+                        <div class="row">
+                            <div class="col col-75">
+                                <label>Direccion Predeterminada:</label>
+                            </div>
+                            <div class="col col-25">
+                                <lx-switch ng-model="d.predeterminada" lx-color="green" lx-size="xl" class="mt+"/>
+                            </div>
+                        </div>
+                    <ion-item nav-clear menu-close class="item-accordion"  ng-show="isGroupShown(d.alias_p)">
+                        <div class="p+++">
+                            <div class="row">
+                                <div class="col col-75">
+                                    <lx-icon lx-id="close-octagon-outline" 
+                                             ng-click="eliminarDireccion(d.alias_p)"
+                                             lx-size="xl" 
+                                             lx-color="red" 
+                                             lx-type="circled">
+                                    </lx-icon>
+                                </div>
+                                <div class="col col-25 col-offset-25">
+                                    <lx-icon lx-id="checkbox-marked-circle-outline"  
+                                             lx-color="green"
+                                             ng-click="editarDireccion(d.alias_p)" 
+                                             lx-size="xl" lx-type="circled">
+                                    </lx-icon>
+                                </div>
+                            </div>    
+                        </div>
+                    </ion-item>
+                </form> 
+            </div>        
+        </ion-list> 
+        <div align="center">
+            <br /><br />
+            <button id="fab-profile" class="button button-fab button-fab-bottom-center button button-calm" ng-click="agregarDireccion()">
+                <i class="ion-plus-circled"></i>
+            </button>     
+        </div>
+    </ion-content> 
+</ion-view>

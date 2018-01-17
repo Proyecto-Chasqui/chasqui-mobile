@@ -1,0 +1,130 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-royal2">
+        <h1 class="title">Administración de: {{grupo.alias}}</h1>
+    </ion-header-bar>
+    <ion-content>
+        <!-- Acciones -->
+        <div class="card" ng-show="grupo.esAdministrador">
+            <div class="row around-xs">
+                <div class="col-xs-2">
+                    <div class="box">
+                        <i class="ion-person-add larger"
+                            ng-click="invitarAGrupo()">
+                        </i>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="box">
+                        <i class="ion-edit larger"
+                            ng-click="editarGrupo()">
+                        </i>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="box">
+                        <i class="ion-ios-minus-outline assertive larger"
+                            ng-click="salirDelGrupo()">
+                        </i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-show="invitarAGrupoShow">
+            <div class="row center-xs">
+                <h4>Invitar miembro al Grupo</h4>
+                <h5>Ingrese una direccion de correo electrónico</h5>
+            </div>
+            <form name="invitarForm" novalidate>
+                <lx-text-field lx-label="correo@correo.com"
+                  lx-valid="!invitarForm.email.$pristine && invitarForm.email.$valid"
+                  lx-error="!invitarForm.email.$pristine && invitarForm.email.$invalid">
+                  <input type="email" ng-model="grupo.emailInvitar" name="email" required>
+                </lx-text-field>
+            </form>
+            <br>
+            <div class="row around-xs">
+                <div class="col-xs-4">
+                    <lx-button class="btn btn--m btn--raised bgc-light-blue-600"
+                               lx-size="xs"
+                               lx-type="raised"
+                               ng-click="invitarUsuario()"
+                               ng-disabled="invitarForm.email.$invalid">Invitar
+                    </lx-button>
+                </div>
+                <div class="col-xs-4">
+                    <lx-button class="btn btn--m btn--raised bgc-indigo-600"
+                               lx-size="xs"
+                               lx-type="raised"
+                               ng-click="cancelarInvitacion()">Cancelar
+                    </lx-button>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="editarGrupoShow">
+            <div class="row center-xs">
+                <h4>Modificar Grupo</h4>
+            </div>
+            <form name="editarForm" novalidate>
+                <lx-text-field lx-label="Alias"
+                  lx-valid="!editarForm.alias.$pristine && editarForm.alias.$valid"
+                  lx-error="!editarForm.alias.$pristine && editarForm.alias.$invalid">
+                  <input type="text" ng-model="grupo.alias" name="alias" required>
+                </lx-text-field>
+                <lx-text-field lx-label="Descripción"
+                  lx-valid="!editarForm.descripcion.$pristine && editarForm.descripcion.$valid"
+                  lx-error="!editarForm.descripcion.$pristine && editarForm.descripcion.$invalid">
+                  <input type="text" ng-model="grupo.descripcion" name="descripcion" required>
+                </lx-text-field>
+            </form>
+            <br>
+            <div class="row around-xs">
+                <div class="col-xs-4">
+                    <lx-button class="btn btn--m btn--raised bgc-light-blue-600"
+                               lx-size="xs"
+                               lx-type="raised"
+                               ng-click="guardarEdicion()"
+                               ng-disabled="editarForm.alias.$invalid || editarForm.descripcion.$invalid">Guardar
+                    </lx-button>
+                </div>
+                <div class="col-xs-4">
+                    <lx-button class="btn btn--m btn--raised bgc-indigo-600"
+                               lx-size="xs"
+                               lx-type="raised"
+                               ng-click="cancelarEdicion()">Cancelar
+                    </lx-button>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="salirDelGrupoShow">
+            <div align="center" ng-if="grupo.miembros.length==1">
+                <button class="button button-assertive" ng-click="eliminarGrupo()">Eliminar Grupo</button>
+            </div>
+        </div>
+
+        <ion-list>
+            <div class="card">
+                <div class="item item-divider">Miembros del grupo</div>
+            </div>
+            <div ng-repeat="miembro in grupo.miembros">
+                <div class="card" ng-if="miembro.invitacion=='NOTIFICACION_ACEPTADA'">
+                    <div class="row middle-xs">
+                        <div class="col col-80">
+                              <h4 class="padding-precio">{{miembro.nickname}} <strong ng-if="miembro.email==grupo.emailAdministrador">(Administrador)</strong> </h4>
+                              <h5 class="dark">Descripcion: {{miembro.email}}</h5>
+                        </div>
+                        <div class="col col-20" ng-if="miembro.email!=grupo.emailAdministrador">
+                            <i class="ion-ios-minus-outline assertive larger"
+                                ng-click="quitarMiembro(miembro.email)">
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <ion-list>
+
+        <br>
+        <button class="button button-full button-positive" ng-click="hideModal()">Volver al listado de grupos</button>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,55 @@
+<ion-view view-title="{{nombreVendedor}}">
+    <ion-nav-buttons side="right">
+        <span ui-sref="menu.home.catalogo.pedidos({idVendedor: idVendedor})">
+            <button class="button button-clear icon ion-bag white-color">
+                <span class="badge" ng-class="{'badge-assertive header-badge': badge>0}"><div ng-if="badge>0">{{badge}}</div></span>
+            </button>
+        </span>
+        <lx-dropdown lx-position="right" lx-over-toggle="true" lx-width="250">
+            <lx-dropdown-toggle>
+                <lx-button lx-color="blank" lx-type="icon">
+                    <i class="mdi mdi-tune"></i>
+                </lx-button>
+            </lx-dropdown-toggle>
+            <lx-dropdown-menu>
+                <ul>
+                    <li ui-sref="menu.home.catalogo.pedidos({idVendedor: idVendedor})">
+                        <a class="dropdown-link dropdown-link--is-large">
+                            <i class="mdi mdi-basket"></i>
+                            <span>Mis Pedidos</span>
+                        </a>
+                    </li>
+                    <li ui-sref="menu.home.catalogo.gruposByCatalogo({idVendedor: idVendedor, nombreVendedor: nombreVendedor})">
+                        <a class="dropdown-link dropdown-link--is-large">
+                            <i class="mdi mdi-account-multiple"></i>
+                            <span>Mis Grupos / Nodos</span>
+                        </a>
+                    </li>
+                    <li class="dropdown-divider"></li>
+                    <li ui-sref="menu.home.catalogo.invitaciones">
+                        <a class="dropdown-link dropdown-link--is-large">
+                            <i class="mdi mdi-bell-outline"></i>
+                            <span>Invitaciones</span>
+                        </a>
+                    </li>
+                    <li class="dropdown-divider"></li>
+                    <li ng-click="verEntregas()"> <!-- MODAL -->
+                        <a class="dropdown-link dropdown-link--is-large">
+                            <i class="mdi mdi-map-marker-radius"></i>
+                            <span>Entregas</span>
+                        </a>
+                    </li>
+                </ul>
+            </lx-dropdown-menu>
+        </lx-dropdown>
+    </ion-nav-buttons>
+    <ion-content scroll="false">
+		<ion-slide-box slide-tabs-scrollable="true" show-pager="false" ion-slide-tabs>
+            <!-- TODO referenciar por subestados -->
+            <ion-slide ion-slide-tab-label="DESTACADOS"><div ng-include src="'app/views/catalog/products.tmpl.html'"></div></ion-slide>
+            <ion-slide ion-slide-tab-label="CATEGORIAS"><div ng-include src="'app/views/catalog/categories.tmpl.html'"></div></ion-slide>
+            <ion-slide ion-slide-tab-label="SELLOS"><div ng-include src="'app/views/catalog/stampsFilter.tmpl.html'"></div></ion-slide>
+            <ion-slide ion-slide-tab-label="PRODUCTORES"><div ng-include src="'app/views/catalog/producers.tmpl.html'"></ion-slide>
+        </ion-slide-box>
+    </ion-content>
+</ion-view>

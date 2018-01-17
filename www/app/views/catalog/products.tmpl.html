@@ -1,0 +1,48 @@
+<ion-view view-title="{{nombreVendedor}}">
+
+    <ion-nav-buttons side="right">
+        <span ui-sref="menu.home.catalogo.pedidos({idVendedor: idVendedor})">
+            <button class="button button-clear icon ion-bag white-color">
+                <span class="badge" ng-class="{'badge-assertive header-badge': badge>0}"><div ng-if="badge>0">{{badge}}</div></span>
+            </button>
+        </span>
+    </ion-nav-buttons>
+
+    <ion-content>
+        <div class="card" ng-show="actividad">
+            <div class="item item-divider">{{breadcrumb}}</div>
+        </div>
+        <ion-list>
+            <div id="top-box">
+                <div ng-repeat="p in pss">
+    				<div class="left">
+    				  <div class="list cardnovedad">
+    				    <div class="mas"></div>
+    				      <div class="item item-image" ng-click="verInfoProducto(p)">
+    				        <img ng-src="{{p.imagenPrincipal}}">
+    				      </div>
+    				   <div class="item">
+    				     <h3 class="padding-precio">{{p.precio | currency}}</h3>
+    				     <h3 class="dark">{{p.nombreProducto}} - {{p.nombreVariedad}}</h3>
+    				     <h4 class="dark">{{p.nombreFabricante}}</h4>
+    				   </div>
+                       <div class="card__actions">
+                            <lx-button lx-size="s"
+                                class="btn btn--s btn--raised bgc-grey-400 tc-white"
+                                ng-click="comprar(p)"
+                                lx-type="raised">Comprar
+                            </lx-button>
+                       </div>
+                      </div>
+    				</div>
+                </div>
+            </div>
+            <div ng-if="!hayItems" class="tc-white-1 p+" flex-container="column" flex-align="space-between center" style="height: 100px">
+                <div class="p+ bgc-light-blue-300">No hay mas productos</div>
+            </div>
+        <ion-list>
+
+        <ion-infinite-scroll ng-if="hayItems" distance="10%" on-infinite="loadMoreData()"></ion-infinite-scroll>
+
+    </ion-content>
+</ion-view>
