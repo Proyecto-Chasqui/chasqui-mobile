@@ -1,4 +1,4 @@
-angular.module('chasqui', ['ionic', 'ngCordova','chasqui.services', 'ionic-material', 'ionMdInput', 'lumx'])
+angular.module('chasqui', ['ionic', 'ngCordova', 'ionic-material', 'ionMdInput', 'lumx'])
 
 .run(function($ionicPlatform, $cordovaSQLite, $state, $ionicHistory, $ionicPopup, AuthenticationService) {
     $ionicPlatform.ready(function() {
